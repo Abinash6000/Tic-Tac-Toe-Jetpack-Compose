@@ -59,7 +59,7 @@ class GameViewModel : ViewModel() {
             if(checkForVictory(BoardCellValue.CIRCLE)) {
                 _gameState.value = _gameState.value.copy(
                     hintText = "Player '0' Won",
-                    playerCrossCount = _gameState.value.playerCircleCount.inc(),
+                    playerCircleCount = _gameState.value.playerCircleCount+1,
                     currentTurn = BoardCellValue.NONE,
                     hasWon = true
                 )
@@ -79,14 +79,14 @@ class GameViewModel : ViewModel() {
             if(checkForVictory(BoardCellValue.CROSS)) {
                 _gameState.value = _gameState.value.copy(
                     hintText = "Player 'X' Won",
-                    playerCrossCount = _gameState.value.playerCrossCount.inc(),
+                    playerCrossCount = _gameState.value.playerCrossCount+1,
                     currentTurn = BoardCellValue.NONE,
                     hasWon = true
                 )
             } else if(hasBoardFull()) {
                 _gameState.value = _gameState.value.copy(
                     hintText = "Game Draw",
-                    drawCount = _gameState.value.drawCount.inc()
+                    drawCount = _gameState.value.drawCount+1
                 )
             } else {
                 _gameState.value = _gameState.value.copy(
